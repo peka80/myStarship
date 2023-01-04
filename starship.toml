@@ -6,27 +6,23 @@ $git_branch\
 $git_state\
 $git_status\
 $line_break\
+$python\
 $nodejs\
+$shell\
 $time\
 $cmd_duration\
 $character"""
 
-[nodejs]
-format = 'via [$symbol($version )]($style) '
-style = 'green'
-
 [directory]
-truncation_length = 3
-truncation_symbol = '…/'
 style = "blue"
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[ ❯](purple)"
+error_symbol = "[ ❯](red)"
+vimcmd_symbol = "[ ❮](green)"
 
 [git_branch]
-format = "on [$symbol$branch]($style)"
+format = "on [[$symbol$branch](purple bg:#1d2230)]($style)"
 style = "bold purple"
 symbol = " "
 
@@ -46,10 +42,19 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [cmd_duration]
-format = "[$duration]($style) "
+format = " [$duration]($style) "
 style = "yellow"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
 
 [time]
 disabled = false
-style = "white"
-format = "[$time]($style) "
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[nodejs]
+format = 'via [$symbol($version)]($style) '
+style = 'green'
